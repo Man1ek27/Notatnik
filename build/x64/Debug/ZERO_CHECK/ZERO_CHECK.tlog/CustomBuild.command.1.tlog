@@ -1,0 +1,10 @@
+^C:\USERS\MARIU\ONEDRIVE\DOKUMENTY\C++\PROJECTS\NOTATNIK\BUILD\CMAKEFILES\554789CF839ED1A2AFBA67463C1E0060\GENERATE.STAMP.RULE
+setlocal
+C:\MinGW\bin\cmake.exe -SC:/Users/Mariu/OneDrive/Dokumenty/C++/Projects/Notatnik -BC:/Users/Mariu/OneDrive/Dokumenty/C++/Projects/Notatnik/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/Mariu/OneDrive/Dokumenty/C++/Projects/Notatnik/build/Notes.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

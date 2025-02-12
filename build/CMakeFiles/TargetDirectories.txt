@@ -1,0 +1,3 @@
+C:/Users/Mariu/OneDrive/Dokumenty/C++/Projects/Notatnik/build/CMakeFiles/Notes.dir
+C:/Users/Mariu/OneDrive/Dokumenty/C++/Projects/Notatnik/build/CMakeFiles/ALL_BUILD.dir
+C:/Users/Mariu/OneDrive/Dokumenty/C++/Projects/Notatnik/build/CMakeFiles/ZERO_CHECK.dir
