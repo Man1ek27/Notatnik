@@ -16,11 +16,12 @@ int main(int argc, char* argv[]){
         while(true){
             system("cls");
             file.Print();
-            file.Kursor();
-
-            if(_kbhit()){
+            file.Kursor_print();
+            
+            while(_kbhit()){
                 //std::cout << static_cast<int>(_getch()) << std::endl;
                 file.Operation(static_cast<int>(_getch()));
+                file.Kursor_move();
              }
             Sleep(300);
 
