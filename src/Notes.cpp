@@ -36,13 +36,35 @@ void Notes::Kursor(){
 }
 
 void Notes::Operation(int key){
-    if(key == 75){//left
-        
-        _position--;
-    }
-    if(key == 77){//right
-        
-        _position++;
+    switch (key)
+    {
+    case 75: //left
+        if(_position >0){
+            _position--;
+        }
+        else{
+            if(_line > 0){
+                _line--;
+                _position = _text[_line].size()-1;
+            }
+        }
+    break;
+    
+    
+    case 77: // right
+        if(_position < _text[_line].size() -1){
+            _position++;
+        }
+        else{
+            if(_line < _text.size() -1){
+                _line++;
+                _position = 0;;
+            }
+        }
+    break;
+
+    default:
+        break;
     }
     if(key == 72){//up
         
