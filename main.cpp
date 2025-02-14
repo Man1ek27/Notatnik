@@ -19,9 +19,15 @@ int main(int argc, char* argv[]){
             file.Kursor_print();
             
             while(_kbhit()){
+                
                 //std::cout << static_cast<int>(_getch()) << std::endl;
-                file.Operation(static_cast<int>(_getch()));
-                file.Kursor_move();
+                int key = static_cast<int>(_getch());
+                if(key == 224 ){
+                    file.Kursor_move(static_cast<int>(_getch()));
+                }
+                else{
+                    file.Operation(key);
+                }
              }
             Sleep(300);
 

@@ -19,7 +19,7 @@ class Notes{
         Notes(std::string);
 
         void Kursor_print();
-        void Kursor_move();
+        void Kursor_move(int);
         void Operation(int);
 
         void Print()const;

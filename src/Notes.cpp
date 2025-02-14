@@ -34,8 +34,64 @@ void Notes::Kursor_print(){
     _text[_line][_position] = kursor;
 
 }
-void Notes::Kursor_move(){
+void Notes::Kursor_move(int key){
+    switch(key){
+        case 75: //left
+            _text[_line].erase(_position, 1);
+            if(_position >0){
+                _position--;
+            }
+            else{
+                if(_line > 0){
+                    _line--;
+                    _position = static_cast<int>(_text[_line].size());
+                }
+            }
+            
+        break;
+    
+    
+        case 77: // right
+            _text[_line].erase(_position, 1);
+            if(_position < static_cast<unsigned int>(_text[_line].size())){
+                _position++;
+            }
+            else{
+                if(_line < static_cast<unsigned int>(_text.size()) -1){
+                    _line++;
+                    _position = 0;;
+                }
+            }
 
+        break;
+
+        
+        case 72: // up
+            _text[_line].erase(_position, 1);
+            if(_line >0){
+                if(_position <= _text[_line-1].size()){
+                    _line--;
+                }
+                else{
+                    _position = static_cast<unsigned int>(_text[_line-1].size());
+                    _line--;
+                }
+            }
+        break;
+        case 80: // down
+            _text[_line].erase(_position, 1);
+            if(_line < static_cast<unsigned int>(_text.size()-1)){
+                if(_position <= _text[_line+1].size()){
+                    _line++;
+                }
+                else{
+                    _position = static_cast<unsigned int>(_text[_line+1].size());
+                    _line++;
+                }
+            }
+        break;
+        }
+        
     _text[_line].insert(_position,1, kursor);
 
 }
@@ -44,63 +100,32 @@ void Notes::Kursor_move(){
 void Notes::Operation(int key){
     switch (key)
     {
-    case 75: //left
-        _text[_line].erase(_position, 2);
-        if(_position >0){
+    case 8: // backspace
+        if(_position > 0){
+            _text[_line].erase(_position-1, 2);
+            _position--;
+        }
+        else if (_line > 0){
+            _text[_line].erase(_position, 1);
+            _position = static_cast<int>(_text[_line-1].size()+1);
+            _text[_line-1] += _text[_line];
+            _text.erase(_text.begin() + _line);
+            _line--;
             _position--;
         }
         else{
-            if(_line > 0){
-                _line--;
-                _position = static_cast<int>(_text[_line].size());
-            }
-        }
-        
-    break;
-    
-    
-    case 77: // right
-        _text[_line].erase(_position, 2);
-        if(_position < static_cast<unsigned int>(_text[_line].size())){
-            _position++;
-        }
-        else{
-            if(_line < static_cast<unsigned int>(_text.size()) -1){
-                _line++;
-                _position = 0;;
-            }
-        }
+            _text[_line].erase(_position, 2);
 
-    break;
-
-    
-    case 72: // up
-        _text[_line].erase(_position, 2);
-        if(_line >0){
-            if(_position <= _text[_line-1].size()){
-                _line--;
-            }
-            else{
-                _position = static_cast<unsigned int>(_text[_line-1].size());
-                _line--;
-            }
-        }
-    break;
-    case 80: // down
-        _text[_line].erase(_position, 2);
-        if(_line < static_cast<unsigned int>(_text.size()-1)){
-            if(_position <= _text[_line+1].size()){
-                _line++;
-            }
-            else{
-                _position = static_cast<unsigned int>(_text[_line+1].size());
-                _line++;
-            }
         }
     break;
     default:
-        break;
+        _text[_line].insert(_position,1, static_cast<char>(key));
+        _text[_line].erase(_position+1, 1);
+        _position++;
+    break;
     }
+
+    _text[_line].insert(_position,1, kursor);
 
 
 }
