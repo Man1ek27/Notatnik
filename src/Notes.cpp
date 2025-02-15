@@ -118,6 +118,14 @@ void Notes::Operation(int key){
 
         }
     break;
+    case 13: // enter
+        _text.insert(_text.begin() + _line + 1, "");
+        _text[_line+1] = _text[_line].substr(_position+1);
+        _text[_line].erase(_position, _text[_line].size()-_position);
+        _line++;
+        _position = 0;
+        
+    break;
     default:
         _text[_line].insert(_position,1, static_cast<char>(key));
         _text[_line].erase(_position+1, 1);
