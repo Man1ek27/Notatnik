@@ -17,6 +17,7 @@ int main(int argc, char* argv[]){
             system("cls");
             file.Print();
             file.Kursor_print();
+            file.Print_menu();
             
             while(_kbhit()){
                 

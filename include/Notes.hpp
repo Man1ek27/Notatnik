@@ -21,6 +21,9 @@ class Notes{
         void Kursor_print();
         void Kursor_move(int);
         void Operation(int);
+        void Print_menu()const;
+        
+        void Save();
 
         void Print()const;
         
