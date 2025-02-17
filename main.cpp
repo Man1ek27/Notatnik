@@ -34,8 +34,6 @@ int main(int argc, char* argv[]){
 
          }
 
-         //std::cout << znak << std::endl;
-
     }
     return 0;
 }

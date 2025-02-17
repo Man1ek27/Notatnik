@@ -129,7 +129,13 @@ void Notes::Operation(int key){
     case 19: // save
         _text[_line].erase(_position, 1);
         this->Save();
-        return;
+    break;
+
+    case 4: // clear - all
+        _position =0;
+        _line =0;
+        _text.clear();
+        _text.push_back("");
     break;
     default:
         _text[_line].insert(_position,1, static_cast<char>(key));
@@ -142,7 +148,7 @@ void Notes::Operation(int key){
 }
 
 void Notes::Print_menu()const{
-    std::cout << "[Ctr + C] - exit,  [Ctr + S] - save, [Ctr + D] - Clear all" <<std::endl;
+    std::cout << "\n[Ctr + C] - exit,  [Ctr + S] - save, [Ctr + D] - Clear all" <<std::endl;
 }
 
 void Notes::Save(){
@@ -151,6 +157,7 @@ void Notes::Save(){
         return;
     }
     for(const std::string line: _text){
+        if(line.size() <1)continue;
         File << line << std::endl;
     }
 }

@@ -1,3 +1,4 @@
-dzieńdobry
-witam serdecznie
-nie wiem co pisz 
+Testowy program
+zeby zobaczyc jak dziala 
+nie wazne co tutaj pisze 
+wazne ze 	
